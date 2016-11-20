@@ -34,3 +34,6 @@ open_file_object.writerow(["ImageId","Label"])
 open_file_object.writerows(zip(ids,out))
 predictions_file.close()
 print ('All is done')
+
+
+#sndandasd
