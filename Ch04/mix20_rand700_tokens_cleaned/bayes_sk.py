@@ -46,15 +46,19 @@ train_data, train_target, test_data, test_target = \
 
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.pipeline import Pipeline
+'''
+参考：http://scikit-learn.org/stable/auto_examples/model_selection/grid_search_text_feature_extraction.html#
+sphx-glr-auto-examples-model-selection-grid-search-text-feature-extraction-py
+以及Pipeline_sample_learn.py
+'''
 from sklearn.feature_extraction.text import TfidfVectorizer,HashingVectorizer
 from sklearn import metrics
 from sklearn.naive_bayes import BernoulliNB
+
 def bayesClassifyTrainAndTest_MultinomialNB(train_data, train_target, test_data, test_target):
     nbc_6 = Pipeline(
         [
-            ('vect',TfidfVectorizer(
-
-            )),
+            ('vect',TfidfVectorizer()),
             ('clf',MultinomialNB(alpha=3)),
         ]
     )
