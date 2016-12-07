@@ -34,11 +34,15 @@ def stumpClassify(dataMatrix,dimen,threshVal,threshIneq):#just classify the data
     else:
         retArray[dataMatrix[:,dimen] > threshVal] = -1.0
     return retArray
+
+
     
 
 def buildStump(dataArr,classLabels,D):
-    dataMatrix = mat(dataArr); labelMat = mat(classLabels).T
+    dataMatrix = mat(dataArr)
+    labelMat = mat(classLabels).T
     m,n = shape(dataMatrix)
+    
     numSteps = 10.0; bestStump = {}; bestClasEst = mat(zeros((m,1)))
     minError = inf #init error sum, to +infinity
     for i in range(n):#loop over all dimensions
