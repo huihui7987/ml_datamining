@@ -47,10 +47,35 @@ def gradAscend(dataMatIn,classLabels):
 
     return weights
 
+
+
+# def stocGradAscent0(dataMatrix,classLabels):
+#     m,n = dataMatrix.shape
+#     alpha = 0.01
+#     weights = np.ones(n)
+#     for i in range(m):
+#         h = sigmoid(sum(dataMatrix[i]*weights))
+#         error = classLabels[i]-h
+#         weights = weights + alpha * error * dataMatrix[i]
+#     return weights
+
+
+
+def stocGradAscent0(dataMatrix, classLabels):
+    m,n = np.shape(dataMatrix)
+    alpha = 0.01
+    weights = np.ones(n)
+    for i in range(m):
+        h = sigmoid(sum(dataMatrix[i]*weights))
+        error = classLabels[i] - h
+        weights = weights + alpha * error * dataMatrix[i]
+    return weights
+
 dataMat,labelMat = loadDataSet(filename)
-res = gradAscend(dataMat,labelMat)
+res = stocGradAscent0(np.array(dataMat),labelMat)
 
 print(res)
+
 
 import matplotlib.pyplot as plt
 
@@ -60,7 +85,7 @@ def plotestFit(wei):
     :param wei:
     :return:
     '''
-    weights = wei.getA()#return self as ndarray object
+    weights = wei#.getA()#return self as ndarray object
     dataMat,labelMat = loadDataSet(filename)
     dataArr = np.array(dataMat)
     n = dataArr.shape[0]

@@ -18,6 +18,7 @@ print ('Start PCA to 100')
 
 train_x=train[0::,1::]
 pca = PCA(n_components=100, whiten=True).fit(train_x)
+
 train_x_pca=pca.transform(train_x)
 test_x_pca=pca.transform(test)
 print ('Start training')
